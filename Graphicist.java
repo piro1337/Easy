@@ -22,7 +22,6 @@ public class Graphicist extends JPanel{
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setSize(800, 800);
         jf.add(this);
-        keyEvent();
 
         jf.setVisible(true);
         img = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
@@ -51,25 +50,5 @@ public class Graphicist extends JPanel{
 
     public void drawLine(int x1, int y1, int x2, int y2){
         g2.drawLine(x1, y1, x2, y2);
-    }
-
-    public void keyEvent(){
-        KeyListener kl = new KeyListener() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                System.out.println("aaa");
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                
-            }
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-                
-            }
-        };
-        jf.addKeyListener(kl);
     }
 }
