@@ -12,18 +12,16 @@ import java.awt.image.BufferedImage;
 /**
  * Graphicist
  */
-public class Graphicist extends JPanel{
+public class Graphicist extends JFrame{
     Graphics2D g2;
     BufferedImage img;
-    JFrame jf;
 
     public Graphicist(int width, int height){
-        jf = new JFrame();
-        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf.setSize(800, 800);
-        jf.add(this);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(800, 800);
+        this.add(jp);
 
-        jf.setVisible(true);
+        this.setVisible(true);
         img = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
         g2 = img.createGraphics();
         g2.setColor(Color.WHITE);
@@ -31,10 +29,14 @@ public class Graphicist extends JPanel{
         g2.setColor(Color.BLACK);
     }
 
-    public void paintComponent(Graphics g){
-        super.paintComponent(g);
-        g.drawImage(img, 0, 0, null);
-    }
+    JPanel jp = new JPanel(){
+        @Override
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            g.drawImage(img, 0, 0, null);
+        }
+    };
+
 
     public void rePaint(){
         repaint();
